@@ -1,0 +1,48 @@
+name: Copilot CLI PR Review (starter)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  copilot-cli-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+
+      - name: Install Copilot CLI
+        run: npm install -g @github/copilot
+
+      - name: Collect PR diff
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh --version
+          gh pr diff ${{ github.event.pull_request.number }} > pr.diff
+
+      - name: Run Copilot CLI (programmatic) against diff
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_TOKEN }}
+        run: |
+          copilot -p "You are a code reviewer. Review the changes in pr.diff. 
+          Provide:
+          1) High risk issues (security, correctness)
+          2) Maintainability issues
+          3) Suggested improvements (with file/line references if possible)
+          Keep it concise and actionable." < pr.diff > copilot_review.md
+
+      - name: Post review as PR comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} --body-file copilot_review.md
