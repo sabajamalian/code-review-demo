@@ -17,6 +17,7 @@ class TodoList(db.Model):
             "id": self.id,
             "name": self.name,
             "created_at": self.created_at.isoformat(),
+            "task_count": len(self.tasks),
         }
 
 
