@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do Lists</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app">
+    <h1>To-Do Lists</h1>
+
+    <!-- Lists View -->
+    <div id="lists-view">
+      <div class="panel">
+        <h2>Create a List</h2>
+        <form id="add-list-form" class="add-form">
+          <input type="text" id="new-list-name" placeholder="List name…" required>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+      <div class="panel">
+        <h2>My Lists</h2>
+        <ul id="list-items" class="item-list"></ul>
+      </div>
+    </div>
+
+    <!-- Tasks View (hidden by default) -->
+    <div id="tasks-view" hidden>
+      <a href="#" id="back-to-lists" class="back-link">&larr; Back to lists</a>
+      <div class="panel">
+        <h2 id="tasks-title"></h2>
+        <form id="add-task-form" class="add-form">
+          <input type="text" id="new-task-title" placeholder="New task…" required>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+      <div class="panel">
+        <h2>Tasks</h2>
+        <ul id="task-items" class="item-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

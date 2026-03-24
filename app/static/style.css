@@ -1,0 +1,151 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #16213e;
+}
+
+/* --- Panels --- */
+.panel {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.panel h2 {
+  font-size: 1.1rem;
+  margin-bottom: .75rem;
+  color: #16213e;
+}
+
+/* --- Forms --- */
+.add-form {
+  display: flex;
+  gap: .5rem;
+}
+
+.add-form input[type="text"] {
+  flex: 1;
+  padding: .5rem .75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: .95rem;
+  outline: none;
+  transition: border-color .15s;
+}
+
+.add-form input[type="text"]:focus {
+  border-color: #0f3460;
+}
+
+.btn {
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: background .15s, opacity .15s;
+}
+
+.btn-primary {
+  background: #0f3460;
+  color: #fff;
+}
+.btn-primary:hover { background: #16213e; }
+
+.btn-danger {
+  background: #e94560;
+  color: #fff;
+}
+.btn-danger:hover { background: #c73e54; }
+
+.btn-sm {
+  padding: .3rem .6rem;
+  font-size: .8rem;
+}
+
+/* --- List items --- */
+.item-list {
+  list-style: none;
+}
+
+.item-list li {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .6rem .5rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background .1s;
+}
+
+.item-list li:last-child { border-bottom: none; }
+.item-list li:hover { background: #f9fafb; }
+
+.item-list li .label {
+  flex: 1;
+  cursor: pointer;
+  word-break: break-word;
+}
+
+.item-list li .label.completed {
+  text-decoration: line-through;
+  opacity: .5;
+}
+
+/* --- Back link --- */
+.back-link {
+  display: inline-block;
+  margin-bottom: .75rem;
+  color: #0f3460;
+  text-decoration: none;
+  font-size: .9rem;
+}
+.back-link:hover { text-decoration: underline; }
+
+/* --- Empty state --- */
+.empty {
+  text-align: center;
+  color: #9ca3af;
+  padding: 1rem 0;
+  font-size: .95rem;
+}
+
+/* --- Checkbox --- */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #0f3460;
+}
+
+/* --- Task description --- */
+.task-desc {
+  font-size: .85rem;
+  color: #6b7280;
+  margin-left: 1.75rem;
+  padding-bottom: .25rem;
+}

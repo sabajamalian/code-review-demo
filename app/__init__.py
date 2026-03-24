@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
@@ -21,12 +21,6 @@ def create_app(config_class="app.config.Config"):
 
     @app.route("/")
     def index():
-        return jsonify({
-            "name": "To-Do List API",
-            "endpoints": {
-                "lists": "/api/lists",
-                "tasks": "/api/lists/<list_id>/tasks",
-            },
-        })
+        return render_template("index.html")
 
     return app
